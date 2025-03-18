@@ -6,13 +6,20 @@ console.log('My Wallet, A Budget Tracking App');
 console.log('Hello, '+fullName.toUpperCase());
 //Manage Total Income and Expenses
 let totalIncome=parseFloat(prompt("Total Income: "));
-let rent=parseFloat(prompt("Rent: "));
-let groceries=parseFloat(prompt("Groceries: "));
-let transport=parseFloat(prompt("Transport: "));
-let entertain=parseFloat(prompt("Entertain: "));
-let others=parseFloat(prompt("Extra or Others expenses: "))
-//calculate the expenses
-let totalExpenses=rent+groceries+transport+entertain+others;
+let n=parseInt(prompt("Enter how many expenses: "));
+let dictionary={};
+let totalExpenses=0;
+for(let i=0;i<n;i++)
+{
+    let expName=prompt("Enter expense name: ");
+    let expValue=parseFloat(prompt("Enter expense value: "));
+    dictionary[expName]=expValue;
+    totalExpenses += dictionary[expName];
+    //or you can
+    //totalExpenses +=expValue;
+}
+//console.log(dictionary);
+//console.log(totalExpenses);
 //tax deduction(12% of income)
 let tax=totalIncome*0.12;
 //Net income after giving tax
@@ -39,6 +46,7 @@ else if(savings<100)
 {
     financialStatus='Critical, give more and more hard work';
 }
+//if you use conditional statement instead of if-else if-else condition
 //let saving=450;
 //let financial = saving>=1000 ? 'Excellent' : saving>=500 && saving<1000 ? 'Good' : saving>=100 && saving<500 ? 'Need Improvement' : saving<100 ? 'Critical' : 'Warning';
 //console.log(financial);
